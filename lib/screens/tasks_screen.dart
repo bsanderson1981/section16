@@ -8,6 +8,12 @@ class TasksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlue,
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Colors.lightBlueAccent,
+        child: Icon(Icons.add),
+        shape: const CircleBorder(),
+      ),
       body:Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
