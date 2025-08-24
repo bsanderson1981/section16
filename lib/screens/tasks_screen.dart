@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class TasksScreen extends StatelessWidget {
@@ -29,6 +30,12 @@ class TasksScreen extends StatelessWidget {
                   fontWeight: FontWeight.w700,
 
                 ),
+            ),
+            Text('12 Task',
+            style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+            ),
             ),
             Expanded(
               child: Container(
