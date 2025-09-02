@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '/widgets/task_list.dart';
+import '/widgets/task_tile.dart';
 //finished sec 16 192
 class TasksScreen extends StatelessWidget {
   const TasksScreen({super.key});
@@ -53,12 +55,14 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
                   )
               ),
+              child: TaskList(),
             ),
           ),
         ],
@@ -66,3 +70,20 @@ class TasksScreen extends StatelessWidget {
     );
   }
 }
+
+class TaskList extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(8),
+      children: <Widget>[
+        TaskTile(),
+        TaskTile(),
+        TaskTile(),
+
+      ],
+    );
+  }
+}
+
