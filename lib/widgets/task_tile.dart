@@ -7,20 +7,27 @@ class TaskTile extends StatefulWidget {
 
 class _TaskTileState extends State<TaskTile> {
   bool isChecked = false ;
-  void checkboxCallback (bool checkboxState){
+
+  //had to alter code checkboxCallback to allow false and not null per chatgpt suggestions to
+  //fix red line error made by commnet out code below
+  void checkboxCallback(bool? checkboxState) {
+    setState(() {
+      isChecked = checkboxState ?? false; // coerce null -> false
+    });
+  }
+/*  void _checkboxCallback (bool checkboxState){
     setState(() {
       isChecked = checkboxState;
     });
-  }
+  }*/
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text('this is a task',
-      style: TextStyle(decoration: isChecked ? TextDecoration.lineThrough: null),),
-      trailing: TaskCheckbox(isChecked,checkboxCallback),
-      //trailing: TaskCheckbox(
-      //         checkboxState: isChecked,
-      //         onChanged: checkboxCallback, /
+      style: TextStyle(decoration: isChecked ? TextDecoration.lineThrough: null),
+      ),
+      trailing: TaskCheckbox(isChecked,checkboxCallback,
+      ),
     );
   }
 }
