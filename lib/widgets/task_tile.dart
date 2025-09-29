@@ -10,6 +10,8 @@ class _TaskTileState extends State<TaskTile> {
 
   //had to alter code checkboxCallback to allow false and not null per chatgpt suggestions to
   //fix red line error made by commnet out code below
+
+  //did not do move code below to make an annonimious funtions broke my code
   void checkboxCallback(bool? checkboxState) {
     setState(() {
       isChecked = checkboxState ?? false; // coerce null -> false
