@@ -1,51 +1,47 @@
-import 'package:flutter/material.dart';
-class TaskTile extends StatefulWidget {
-/finished 201
-  @override
-  State<TaskTile> createState() => _TaskTileState();
-}
+import 'package:flutter/material.dart';/*
 
-class _TaskTileState extends State<TaskTile> {
-  bool isChecked = false ;
+(bool checkboxState {
+  setState){
+  isChecked = checkboxState;
+  });
+},*/
 
-  //had to alter code checkboxCallback to allow false and not null per chatgpt suggestions to
-  //fix red line error made by commnet out code below
 
-  //did not do move code below to make an annonimious funtions broke my code
-  void checkboxCallback(bool? checkboxState) {
-    setState(() {
-      isChecked = checkboxState ?? false; // coerce null -> false
-    });
-  }
-/*  void _checkboxCallback (bool checkboxState){
-    setState(() {
-      isChecked = checkboxState;
-    });
-  }*/
+class TaskTile extends StatelessWidget {
+  final bool isChecked;
+  final String taskTitle;
+
+  //final Function checkboxCallback;
+  final ValueChanged<bool?>? onChanged; // nullable allowed
+
+  const TaskTile({
+    super.key,
+    required this.isChecked,
+    required this.taskTitle,
+   // required this.checkboxCallback,
+    this.onChanged,
+  });
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text('this is a task',
-      style: TextStyle(decoration: isChecked ? TextDecoration.lineThrough: null),
+      title: Text(
+        taskTitle,
+        style: TextStyle(
+          decoration: isChecked ? TextDecoration.lineThrough
+              : TextDecoration.none,
+        ),
       ),
-      trailing: TaskCheckbox(isChecked,checkboxCallback,
+      trailing: Checkbox(
+        activeColor: Colors.lightBlueAccent,
+        value: isChecked,
+        onChanged: (bool? value) {
+         // print('Checkbox changed to: $value');  // 👈 prints in the debug console
+          if (onChanged != null) {
+            onChanged!(value); // call the passed-in callback
+          }
+        },
       ),
-    );
-  }
-}
-
-class TaskCheckbox extends StatelessWidget {
-  final bool checkboxState;
-  //final Function toggleCheckboxState;  not work needed set valuechanged bool?
-  final ValueChanged<bool?> toggleCheckboxState;
-  TaskCheckbox(this.checkboxState, this.toggleCheckboxState);
-
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(
-      activeColor: Colors.lightBlueAccent,
-      value: checkboxState,
-      onChanged: toggleCheckboxState,
     );
   }
 }

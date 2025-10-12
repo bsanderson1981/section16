@@ -93,7 +93,7 @@ class TasksScreen extends StatelessWidget {
   }
 }
 
-class TaskList extends StatelessWidget {
+/*class TaskList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -107,5 +107,5 @@ class TaskList extends StatelessWidget {
       ],
     );
   }
-}
+}*/
 
