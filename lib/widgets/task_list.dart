@@ -46,9 +46,12 @@ class TaskList extends StatefulWidget {
 
 class _TaskListState extends State<TaskList> {
   final List<Task> tasks = [
-    Task(name: 'buy milkxxx'),
+    Task(name: 'buy milk'),
     Task(name: 'buy eggs'),
     Task(name: 'buy bread'),
+    Task(name: 'buy gas'),
+    Task(name: 'buy oil'),
+    Task(name: 'buy apples'),
   ];
 
   @override

@@ -1,14 +1,7 @@
-import 'package:flutter/material.dart';/*
-
-(bool checkboxState {
-  setState){
-  isChecked = checkboxState;
-  });
-},*/
-
+import 'package:flutter/material.dart';
 
 class TaskTile extends StatelessWidget {
-  final bool isChecked;
+   final bool isChecked ;
   final String taskTitle;
 
   //final Function checkboxCallback;
